@@ -1,0 +1,120 @@
+/* ============================================================
+   TemplateCards.css — Example template cards section
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.templates-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+}
+
+/* ── Section header row ── */
+.templates-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.templates-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ── Browse all button ── */
+.browse-btn {
+    font-size: 13px;
+    font-weight: 500;
+    color: #a78bfa;
+    background: transparent;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 99px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.browse-btn:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.5);
+}
+
+/* ── Cards grid ── */
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+}
+
+/* ── Individual template card ── */
+.template-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 20px 18px;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-med), border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med);
+    position: relative;
+    overflow: hidden;
+}
+
+.template-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-card-hover);
+    opacity: 0;
+    transition: opacity var(--transition-med);
+}
+
+.template-card:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.template-card:hover::before {
+    opacity: 1;
+}
+
+/* Card emoji icon */
+.card-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card title */
+.card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card description */
+.card-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Responsive: stack to 2 columns on small screens ── */
+@media (max-width: 480px) {
+    .templates-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

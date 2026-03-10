@@ -1,0 +1,45 @@
+/* ============================================================
+   App.css — App-level layout styles
+   ============================================================ */
+
+/* ── Root App Container ── */
+/* Flex row: sidebar on left, main content on right */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Animated Background Gradient ── */
+.app-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Main Content Area ── */
+/* Sits to the right of the sidebar */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    margin-left: var(--sidebar-width);
+}
+
+/* ── Responsive: Collapse sidebar on mobile ── */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
